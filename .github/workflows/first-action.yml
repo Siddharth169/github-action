@@ -1,0 +1,18 @@
+name: hello-world # work flow name
+on: workflow_dispatch # this are the triggers when and how this action be triggered
+jobs:
+    hello: # Job1 name
+        runs-on: ubuntu-latest # Runner
+        steps:
+            - name: Print
+              run: echo "Hello world"
+            - name: "Action-2"
+              run: |
+                echo "this is step 2 from job 1"
+                echo "this is step 3 from job 1"
+    
+    whoami: # Job 2 name
+        runs-on: ubuntu-latest # Runner
+        steps:
+            - name: Validate how am i
+              run: whoami
