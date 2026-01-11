@@ -13,6 +13,7 @@ jobs:
     
     whoami: # Job 2 name
         runs-on: ubuntu-latest # Runner
+        needs: hello
         steps:
             - name: Validate how am i
               run: whoami
