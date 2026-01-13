@@ -17,5 +17,5 @@ jobs:
     runs-on: ubuntu
     needs: build
     steps:
-      - name: secret
+      - name: secrets
         run: echo "He loves ${{ secrets.LOVE }}"
