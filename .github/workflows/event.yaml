@@ -1,0 +1,21 @@
+name: Event-based
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types: opened
+jobs:
+  build:
+    runs-on: ubuntu
+    steps:
+      - name: test
+        run: echo "Hi ${{ vars.NAME }}"
+  deploy:
+    runs-on: ubuntu
+    needs: build
+    steps:
+      - name: secret
+        run: echo "He loves ${{ secrets.LOVE }}"
