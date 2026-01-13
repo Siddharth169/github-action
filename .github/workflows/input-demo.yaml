@@ -6,6 +6,11 @@ on:
         description: "Mention the name of the env to execute."
         required: true
         default: "dev"
+        type: choice # if you want a drop list for the env selection
+        options:
+          - dev
+          - test
+          - prod
 jobs:
   deploy:
     runs-on: ubuntu-latest
