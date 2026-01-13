@@ -1,0 +1,14 @@
+name: Input-demo
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Mention the name of the env to execute."
+        required: true
+        default: "dev"
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploying
+        run: echo "Deploying on ${{ inputs.environment }}"
