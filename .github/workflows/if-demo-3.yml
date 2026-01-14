@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - feature/**
+      - develop
+      - main
 jobs:
   build:
     runs-on: ubuntu-slim
