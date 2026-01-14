@@ -14,14 +14,14 @@ jobs:
         run: echo "Verified the code from ${{ github.ref_name }}"        
   dev:
     runs-on: ubuntu-slim
-    needs: build
+    #needs: build
     if: github.ref_name == 'develop' && github.event_name == 'push'
     steps:
       - name: Deploy to dev cluster
         run: echo "Deployed to dev cluster."
   prod:
     runs-on: ubuntu-slim
-    needs: dev
+    #needs: dev
     if: github.event_name == 'push' && github.ref_name == 'main'
     steps:
       - name: Deploy to prod
