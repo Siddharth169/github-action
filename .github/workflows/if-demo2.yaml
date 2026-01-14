@@ -1,0 +1,26 @@
+name: if-demo-2
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+    types: 
+    - opened
+    - synchronize
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-slim
+    steps:
+      - name: check the pr
+        if: github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main'
+        run: echo "building the code from pr"
+  deploy:
+    runs-on: ubuntu-slim
+    steps:
+      - name: deploy it from merged code
+        if: github.event_name == 'push' && github.ref_name == 'main'
+        run: echo "deploying the code from merged code changes."
