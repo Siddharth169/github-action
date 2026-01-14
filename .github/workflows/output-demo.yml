@@ -1,0 +1,19 @@
+name: output-demo
+on: workflow_dispatch
+jobs:
+  job1:
+    outputs:
+      version-id: ${{ steps.step1.outputs.Version }}
+    runs-on: ubuntu-slim
+    steps:
+      - name: build
+        id: step1
+        run: echo "Version=102.2" >> $value
+      - name: test
+        run: echo "build version is ${{ steps.step1.outputs.Version }}
+  job2:
+    needs: job1
+    runs-on: ubuntu-slim
+    steps:
+      - name: deploy
+        run: echo "deployed version ${{ needs.job1.outputs.version-id }}
