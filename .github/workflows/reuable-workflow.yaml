@@ -1,0 +1,22 @@
+name: reusable
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: "enter the name"
+        required: true
+        type: string
+        default: "kavin"
+      env:
+        description: "Mention the branch name"
+        required: true
+        default: 'prod'
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-slim
+    steps:
+      - name: deploy
+        run: echo "deploying the resuable workflow"
+        
