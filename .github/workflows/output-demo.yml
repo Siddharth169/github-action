@@ -10,10 +10,10 @@ jobs:
         id: step1
         run: echo "Version=102.2" >> $GITHUB_OUTPUT
       - name: test
-        run: echo "build version is ${{ steps.step1.outputs.Version }}
+        run: echo "build version is ${{ steps.step1.outputs.Version }}"
   job2:
     needs: job1
     runs-on: ubuntu-slim
     steps:
       - name: deploy
-        run: echo "deployed version ${{ needs.job1.outputs.version-id }}
+        run: echo "deployed version ${{ needs.job1.outputs.version-id }}"
